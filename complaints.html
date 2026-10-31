@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint History - ScamShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🛡️ ScamShield</h1>
+        <p>Complaint Management Dashboard</p>
+    </header>
+
+    <main class="card">
+        <h2>Complaint History</h2>
+
+        {% if complaints %}
+            {% for item in complaints %}
+                <div class="result-box">
+                    <h3>Complaint #{{ item.id }}</h3>
+                    <p><strong>Category:</strong> {{ item.category }}</p>
+                    <p><strong>Description:</strong> {{ item.description }}</p>
+                    <p><strong>Reference:</strong> {{ item.reference or "Not provided" }}</p>
+                    <p><strong>Status:</strong> {{ item.status }}</p>
+                    <p><strong>Date:</strong> {{ item.created_at }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No complaints submitted yet.</p>
+        {% endif %}
+
+        <a href="/complaint" class="back-button">+ New Complaint</a>
+        <a href="/" class="back-button">← Home</a>
+    </main>
+</div>
+
+</body>
+</html>

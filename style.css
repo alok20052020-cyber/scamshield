@@ -1,0 +1,215 @@
+
+/* ScamShield - Professional UI */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f6fb;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 45px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #155eef;
+    font-size: 38px;
+    font-weight: 800;
+}
+
+header p {
+    color: #64748b;
+    margin-top: 8px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
+    margin-bottom: 24px;
+}
+
+h2 {
+    color: #1e293b;
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin: 15px 0 7px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    background: #fff;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1749b5;
+    transform: translateY(-1px);
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.result-box {
+    padding: 22px;
+    border-radius: 12px;
+    margin: 20px 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.warning {
+    background: #fff7ed;
+    border-left: 5px solid #f59e0b;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.error {
+    color: #dc2626;
+    background: #fef2f2;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 18px;
+}
+
+footer {
+    text-align: center;
+    color: #94a3b8;
+    padding: 25px 10px;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+}
+
+th, td {
+    padding: 13px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+th {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    header h1 {
+        font-size: 29px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Extra ScamShield styling */
+
+header h1 {
+    letter-spacing: 1px;
+}
+
+main.card > h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+main.card > p {
+    color: #64748b;
+}
+
+.result-box h3 {
+    color: #155eef;
+    margin-bottom: 8px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 12px 10px 0 0;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+}
+
+.back-button:hover {
+    background: #eff6ff;
+    text-decoration: none;
+}
+
+.warning {
+    line-height: 1.5;
+}

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ScamShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🛡️ ScamShield</h1>
+        <p>Admin Complaint Management Dashboard</p>
+    </header>
+
+    <main class="card">
+        <h2>All Complaints</h2>
+
+        {% if complaints %}
+            {% for item in complaints %}
+                <div class="result-box">
+                    <h3>Complaint #{{ item.id }}</h3>
+
+                    <p><strong>Category:</strong> {{ item.category }}</p>
+                    <p><strong>Description:</strong> {{ item.description }}</p>
+                    <p><strong>Reference:</strong> {{ item.reference or "Not provided" }}</p>
+                    <p><strong>Current Status:</strong> {{ item.status }}</p>
+                    <p><strong>Date:</strong> {{ item.created_at }}</p>
+
+                    <form action="/admin" method="POST">
+                        <input type="hidden" name="complaint_id" value="{{ item.id }}">
+
+                        <label for="status-{{ item.id }}">Update Status</label>
+                        <select name="status" id="status-{{ item.id }}">
+                            <option value="Pending" {% if item.status == "Pending" %}selected{% endif %}>Pending</option>
+                            <option value="Resolved" {% if item.status == "Resolved" %}selected{% endif %}>Resolved</option>
+                        </select>
+
+                        <button type="submit">Update Status</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No complaints submitted yet.</p>
+        {% endif %}
+
+        <a href="/" class="back-button">← Back to Home</a>
+        <a href="/complaints" class="back-button">View Complaint History</a>
+        <a href="/logout" class="back-button">Logout</a>
+    </main>
+
+    <footer>
+        <p>ScamShield | Admin Dashboard</p>
+    </footer>
+</div>
+
+</body>
+</html>

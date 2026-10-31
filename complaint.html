@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Complaint - ScamShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🛡️ ScamShield</h1>
+        <p>Scam Complaint Management</p>
+    </header>
+
+    <main class="card">
+        <h2>Submit a Complaint</h2>
+        <p>Report a suspicious message, website or online activity.</p>
+
+        {% if success %}
+            <p style="color: lightgreen;">{{ success }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form action="/complaint" method="POST">
+
+            <label for="category">Complaint Category</label>
+            <select name="category" id="category" required>
+                <option value="">Select Category</option>
+                <option value="Fake Website">Fake Website</option>
+                <option value="Phishing Message">Phishing Message</option>
+                <option value="Online Fraud">Online Fraud</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="description">Complaint Description</label>
+            <textarea
+                name="description"
+                id="description"
+                placeholder="Describe what happened..."
+                maxlength="2000"
+                required
+            ></textarea>
+
+            <label for="reference">Reference (Optional)</label>
+            <input
+                type="text"
+                name="reference"
+                id="reference"
+                placeholder="Optional reference number"
+                maxlength="100"
+            >
+
+            <button type="submit">Submit Complaint</button>
+        </form>
+
+        <p class="warning">
+            Never enter passwords, OTPs, bank details or payment secrets.
+        </p>
+
+        <a href="/" class="back-button">← Back to Home</a>
+    </main>
+</div>
+
+</body>
+</html>

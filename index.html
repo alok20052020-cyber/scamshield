@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamShield - Scam Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🛡️ ScamShield</h1>
+        <p>Your Smart Scam Detection Assistant</p>
+    </header>
+
+    <main class="card">
+        <h2>Check for Scams</h2>
+        <p>Analyze a suspicious URL or message.</p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form action="/analyze" method="POST">
+            <label for="input_type">Choose Input Type</label>
+
+            <select name="input_type" id="input_type">
+                <option value="url">Website URL</option>
+                <option value="message">Text Message</option>
+            </select>
+
+            <label for="user_input">Enter URL or Message</label>
+
+            <textarea
+                name="user_input"
+                id="user_input"
+                placeholder="Paste a suspicious URL or message here..."
+                required
+            ></textarea>
+
+            <button type="submit">Analyze Now →</button>
+        </form>
+
+        <p class="warning">
+            ⚠️ Never enter your real password, OTP or bank details.
+        </p>
+
+        <div class="result-box">
+            <h3>More Features</h3>
+            <p>Report suspicious online activity.</p>
+
+            <a href="/complaint" class="back-button">
+                + Submit Complaint
+            </a>
+
+            <a href="/complaints" class="back-button">
+                View Complaint History
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>ScamShield | Mini Project</p>
+        <p>Educational tool. Results are estimates, not a guarantee of safety.</p>
+    </footer>
+</div>
+
+</body>
+</html>
